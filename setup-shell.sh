@@ -106,6 +106,16 @@ fi
 
 # Load p10k config (run `p10k configure` to create/update it)
 [[ -f "$HOME/.p10k.zsh" ]] && source "$HOME/.p10k.zsh"
+
+# ── Tab title ──────────────────────────────────────────────────────────────────
+# Shows folder name at rest, command name while running.
+# Uses add-zsh-hook to avoid overwriting Powerlevel10k's hooks.
+# Note: iTerm2 → Profiles → General → Title → uncheck "Job Name" to hide (-zsh)
+autoload -Uz add-zsh-hook
+_tab_title_precmd()  { echo -ne "\e]1;${PWD##*/}\a" }
+_tab_title_preexec() { echo -ne "\e]1;$1\a" }
+add-zsh-hook precmd  _tab_title_precmd
+add-zsh-hook preexec _tab_title_preexec
 ZSHRC
 success "~/.zshrc written"
 

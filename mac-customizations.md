@@ -76,6 +76,7 @@ eval "$(pyenv virtualenv-init -)"
 - **SCM Breeze**: Git workflow shortcuts and enhancements
 - **eza**: Modern `ls` replacement with icons (aliased to `ls`)
 - **pyenv**: Python version management with virtualenv support
+- **Tab title**: Shows current folder name at rest, running command while active. Uses `add-zsh-hook` to avoid conflicting with Powerlevel10k. Note: in iTerm2, go to Profiles → General → Title and uncheck **Job Name** to remove the `(-zsh)` suffix.
 
 ---
 
